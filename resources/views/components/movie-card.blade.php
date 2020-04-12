@@ -13,9 +13,8 @@
                 <span>{{ \Carbon\Carbon::parse($movie['release_date'])->format('M d, Y') }}</span>
             </div>
             <div class="text-gray-400 text-sm">
-                @foreach ($movie['genre_ids'] as $id)
-                    {{ $genres->get($id) }}@if (!$loop->last), @endif
-                @endforeach
+                @foreach ($movie['genre_ids'] as $id){{$genres->get($id)}}@if (!$loop->last),@endif @endforeach
+            {{-- {{ $genres->intersectByKeys($movie['genre_ids'])->implode(',') }} --}}
             </div>
         </div>
     </div>

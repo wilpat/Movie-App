@@ -25,15 +25,16 @@
                 </p>
 
                 <div class="mt-12">
-                    <h4 class="font-semibold">Featured Cast</h4>
+                    <h4 class="font-semibold">Featured Crew</h4>
                     <div class="flex mt-4">
                         @foreach ($movie['credits']['crew'] as $crew)
-                            @if($loop->index < 2)
-                                <div class="mr-8">
-                                    <div>{{ $crew['name'] }}</div>
-                                    <div class="text-gray-400 text-sm">{{ $crew['job'] }}</div>
-                                </div>
+                            @if($loop->index == 2)
+                                @break
                             @endif
+                            <div class="mr-8">
+                                <div>{{ $crew['name'] }}</div>
+                                <div class="text-gray-400 text-sm">{{ $crew['job'] }}</div>
+                            </div>
                         @endforeach
                     </div>
                 </div>
@@ -58,19 +59,20 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
 
                 @foreach ($movie['credits']['cast'] as $cast)
-                    @if($loop->index < 5)
-                        <div class="mt-8">
-                            <a href="#">
-                                <img src="https://image.tmdb.org/t/p/w500/{{$cast['profile_path']}}" alt="{{ $cast['name'] }}" class="hover:opacity-75 transition ease-in-out duration-150">
-                            </a>
-                            <div class="mt-2">
-                                <a href="#" class="text-lg mt-2 hover:text-gray:300">{{ $cast['name'] }}</a>
-                                <div class="text-gray-400 text-sm">
-                                    {{ $cast['character'] }}
-                                </div>
+                    @if($loop->index == 5)
+                        @break
+                    @endif
+                    <div class="mt-8">
+                        <a href="#">
+                            <img src="https://image.tmdb.org/t/p/w500/{{$cast['profile_path']}}" alt="{{ $cast['name'] }}" class="hover:opacity-75 transition ease-in-out duration-150">
+                        </a>
+                        <div class="mt-2">
+                            <a href="#" class="text-lg mt-2 hover:text-gray:300">{{ $cast['name'] }}</a>
+                            <div class="text-gray-400 text-sm">
+                                {{ $cast['character'] }}
                             </div>
                         </div>
-                    @endif
+                    </div>
                 @endforeach
                 
 
@@ -84,13 +86,14 @@
             <h2 class="text-4xl font-semibold">Images</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
                 @foreach ($movie['images']['backdrops'] as $image)
-                    @if($loop->index < 9)
-                        <div class="mt-8">
-                            <a href="#">
-                                <img src="https://image.tmdb.org/t/p/w500/{{$image['file_path']}}" alt="Image {{ $loop->index }}" class="hover:opacity-75 transition ease-in-out duration-150">
-                            </a>
-                        </div>
+                    @if($loop->index == 9)
+                        @break
                     @endif
+                    <div class="mt-8">
+                        <a href="#">
+                            <img src="https://image.tmdb.org/t/p/w500/{{$image['file_path']}}" alt="Image {{ $loop->index }}" class="hover:opacity-75 transition ease-in-out duration-150">
+                        </a>
+                    </div>
                 @endforeach
                 
             </div>
