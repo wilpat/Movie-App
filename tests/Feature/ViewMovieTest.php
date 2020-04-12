@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use Livewire\Livewire;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -33,7 +34,7 @@ class ViewMovieTest extends TestCase
     }
 
     /** @test */
-    public function the_movie_page_shows_correct_info ()
+    public function user_can_view_movie_info ()
     {
         $this->withoutExceptionHandling();
         Http::fake([
@@ -48,6 +49,19 @@ class ViewMovieTest extends TestCase
         $response->assertSee('Ad Astra');
         $response->assertSee('Brad Pitt');
         $response->assertSee('McBride');
+    }
+
+    /** @test */
+    public function user_can_search_for_movies ()
+    {
+        $this->withoutExceptionHandling();
+        Http::fake([
+            'https://api.themoviedb.org/3/search/movie/?query=Ad Astra' => $this->getFakeMovie()
+        ]);
+        Livewire::test('search-dropdown')
+            ->assertDontSee('Ad Astra')
+            ->set('search','Ad Astra')
+            ->assertSee('Ad Astra');
     }
 
     private function getFakePopularMovies() {

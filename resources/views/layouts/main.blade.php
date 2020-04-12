@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/main.css">
+    @livewireStyles
     <title>Movie App</title>
 </head>
 <body class="font-sans bg-gray-900 text-white">
@@ -30,12 +31,7 @@
                 </li>
             </ul>
             <div class="flex items-center mt-3 md:mt-0">
-                <div class="relative">
-                    <input type="text" class=" text-sm bg-gray-800 rounded-full w-64 px-4 pl-8 py-1 focus:outline-none focus:shadow-outline" placeholder="Search">
-                    <div class="absolute top-0">
-                        <svg class="fill-current text-gray-500 w-4 ml-2 mt-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
-                    </div>
-                </div>
+                <livewire:search-dropdown>
                 <div class="ml-4">
                     <a href="#">
                         <img src="/img/avatar.jpeg" alt="" class="rounded-full max-w-none w-8 h-8">
@@ -45,5 +41,6 @@
         </div>
     </nav>
     @yield('content')
+    @livewireScripts
 </body>
 </html>
