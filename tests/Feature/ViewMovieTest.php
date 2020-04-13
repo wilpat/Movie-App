@@ -36,11 +36,11 @@ class ViewMovieTest extends TestCase
     /** @test */
     public function user_can_view_movie_info ()
     {
-        $this->withoutExceptionHandling();
+        // $this->withoutExceptionHandling();
         Http::fake([
             'https://api.themoviedb.org/3/movie/*' => $this->getFakeMovie()
         ]);
-        $response = $this->get(route('movie.show', 419704));
+        $response = $this->get(route('movie.show', 1234));
 
         $response->assertStatus(200);
         $response->assertSee('Featured Crew');
@@ -54,7 +54,7 @@ class ViewMovieTest extends TestCase
     /** @test */
     public function user_can_search_for_movies ()
     {
-        $this->withoutExceptionHandling();
+        // $this->withoutExceptionHandling();
         Http::fake([
             'https://api.themoviedb.org/3/search/movie/?query=Ad Astra' => $this->getFakeMovie()
         ]);
