@@ -15,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'MovieController@index')->name('movies.index');
 Route::get('/movies/{movie}', 'MovieController@show')->name('movie.show');
+
+Route::get('/actors', 'ActorsController@index')->name('actors.index');
+Route::get('/actors/{actor}', 'ActorsController@show')->name('actor.show');
+Route::get('/actors/pages/{page}', 'ActorsController@index')->name('actor.index');
