@@ -6,8 +6,8 @@
             <h2 class="uppercase tracking-wider text-orange-500 text-lg font-semibold">Popular Actors</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                 @foreach ($popularActors as $actor)
-                    <div class="actors mt-8">
-                        <a href="#">
+                    <div class="actor mt-8">
+                        <a href="{{ route('actor.show', $actor['id']) }}">
                             <img src="{{ $actor['profile_path'] }}" alt="{{$actor['name'] }}" class="hover:opacity-75 transition ease-in-out duration-150">
                         </a>
                         <div class="mt-2">
@@ -19,7 +19,15 @@
             </div>
         </div>
         {{-- End popular actors --}}
-        <div class="pagination mt-16 flex justify-between">
+        <div class="page-load-status mt-8">
+            <div class="flex justify-center">
+                <div class="infinite-scroll-request spinner my-8 text-4xl text-center">&nbsp;</div>
+                <p class="infinite-scroll-last">End.</p>
+                <p class="infinite-scroll-error">Error.</p>
+            </div>
+            
+        </div>
+        {{-- <div class="pagination mt-16 flex justify-between">
             @if ($previous)
                 <a href="/actors/pages/{{ $previous }}">Previous</a>
             @else
@@ -31,6 +39,20 @@
             @else
                 <div></div>
             @endif
-        </div>
+        </div> --}}
     </div>
+@endsection
+
+@section('scripts')
+    <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
+    <script>
+        var elem = document.querySelector('.grid');
+        var infScroll = new InfiniteScroll( elem, {
+        // options
+        path: '/actors/pages/@{{#}}',
+        append: '.actor',
+        status: '.page-load-status'
+        // history: false,
+        });
+    </script>
 @endsection
