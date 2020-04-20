@@ -3,4 +3,4 @@
 
 # Movie-App
 
-Massive credits to (Andre Maradang)[https://github.com/drehimself] for the guide on building this.
+Massive credits to [https://github.com/drehimself](Andre Maradang) for the guide on building this.
