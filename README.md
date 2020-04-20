@@ -3,4 +3,6 @@
 
 # Movie-App
 
+Link to the live application can be found in the description and [Here](https://movie.weokafor.com/)
+
 Massive credits to [Andre Maradang](https://github.com/drehimself) for the guide on building this.
