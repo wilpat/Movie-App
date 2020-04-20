@@ -70,7 +70,7 @@ class MovieController extends Controller
             ->get('https://api.themoviedb.org/3/movie/'.$id.'?append_to_response=credits,videos,images')
             ->json();
         // dd($movie);
-        abort_if($movie['status_code'] == 34, 404 );
+        abort_if(isset($movie['status_code']), 404 );
         abort_if(isset($movie['errors']), 403);
         $viewModel = new MovieViewModel($movie);
 

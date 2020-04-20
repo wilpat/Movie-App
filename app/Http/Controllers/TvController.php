@@ -74,7 +74,7 @@ class TvController extends Controller
         $tvshow = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/tv/'.$id.'?append_to_response=credits,videos,images')
             ->json();
-        abort_if($tvshow['status_code'] == 34, 404 );
+        abort_if(isset($tvshow['status_code']), 404 );
         abort_if(isset($tvshow['errors']), 403);
         $viewModel = new TvShowViewModel($tvshow);
 
