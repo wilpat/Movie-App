@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/main.css">
+    <meta name="description" content="Quickly lookup trending movies, tv shows and details of your favorite actors all in one place.">
+    <meta name="keywords" content="Movies, tv shows, actors, popular movies, movie.weokafor.com, top rated">
+    <meta name="author" content="William Okafor">
+    <meta name="og:title" content="Top movies, TV Shows and Actors">
+    <meta name="og:description" content="Quickly lookup trending movies, tv shows and details of your favorite actors all in one place.">
+    <meta name="og:image" content="/img/watch.jpg">
+    <meta name="og:url" content="https://movie.weokafor.com">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="/img/watch.jpg">
+    <meta property="twitter:url" content="https://movie.weokafor.com">
+    <meta property="twitter:title" content="Top movies, TV Shows and Actors">
+    <meta property="twitter:description" content="Quickly lookup trending movies, tv shows and details of your favorite actors all in one place.">
+    <meta property="twitter:image" content="/img/watch.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/logo.png">
     @livewireStyles
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <title>Movie App</title>
