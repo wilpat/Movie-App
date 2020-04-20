@@ -58,7 +58,9 @@ class ActorsController extends Controller
         $actor = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/person/'.$id)
             ->json();
-
+        // dd($actor);
+        abort_if(isset($actor['status_code']), 404 );
+        abort_if(isset($actor['errors']), 403);
         $social = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/person/'.$id.'/external_ids')
             ->json();

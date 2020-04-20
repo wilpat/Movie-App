@@ -38,12 +38,22 @@ class ActorViewModel extends ViewModel
 
     public function knownFor() {
         $movies = collect($this->credits)->get('cast');
-        return collect($movies)->where('media_type', 'movie')->sortByDesc('popularity')->take(5)->map(function($movie){
+        return collect($movies)->sortByDesc('popularity')->take(5)->map(function($movie){
+            if($movie['media_type'] == 'movie'){ // Movies
+                $link = route('movie.show', $movie['id']);
+                $title = $movie['title'];
+            } elseif($movie['media_type'] == 'tv'){ // TV Shows
+                $link = route('tv.show', $movie['id']);
+                $title = $movie['name'];
+            } else {
+                $title = 'No Name';
+            }
             return collect($movie)->merge([
                 'poster_path' => $movie['poster_path'] ? 
                     'https://image.tmdb.org/t/p/w185'.$movie['poster_path'] :
                     'https://ui-avatars.com/api/?size=185&name='.$this->actor['name'],
-                'title' => isset($movie['title']) ? $movie['title'] : 'Undefined'
+                'title' => $title,
+                'link' => $link
             ]);
         });
     }

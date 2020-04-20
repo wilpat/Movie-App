@@ -146,7 +146,7 @@
     </div>
     <script>
 		(function() {
-        // Handle closing the modal and stopping the video on close of the iframe's modal
+        // Handle closing the modal
             let modal = document.getElementById('video-modal');
             let playButton = document.getElementById('play-button');
             let videoModalOpened = false;
