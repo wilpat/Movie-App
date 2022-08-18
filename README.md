@@ -1,4 +1,4 @@
-<p align="center"><img src="https://i0.wp.com/mightyawesomeproductions.com/wp-content/uploads/2016/02/MAlogo-01-500-pixels.png?fit=500%2C500&ssl=1" width="400"></p>
+<p align="center"><img src="https://i.pinimg.com/originals/c7/4f/d0/c74fd0c29f1d0451aebd536f005ac02d.png" width="400"></p>
 
 
 # Movie-App
